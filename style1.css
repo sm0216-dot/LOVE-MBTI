@@ -1,0 +1,85 @@
+/* **7. A. 웹 폰트 적용:** */
+/* 예시로 'Dancing Script'와 같은 로맨틱한 폰트를 사용해봅니다. */
+body {
+    /* 기존 폰트 설정 재정의 */
+    font-family: 'Dancing Script', cursive, 'Arial', sans-serif; 
+    font-size: 1.1em; /* 글자 크기를 조금 더 키워서 부드러운 느낌 강조 */
+    /* ... (나머지 기존 body 스타일) */
+}
+
+/* 제목은 가독성을 위해 다른 폰트나 기본 폰트를 유지할 수도 있습니다. */
+header h1, .card h2 {
+    font-family: 'Montserrat', sans-serif; /* 깔끔하고 모던한 폰트 예시 */
+    font-weight: 700;
+}
+/* **7. B. 로맨틱한 배경 그라데이션:** */
+body {
+    /* 그라데이션을 배경에 추가 (매우 연하게) */
+    background: linear-gradient(135deg, var(--background-light) 0%, #FAE0E6 100%); 
+    /* ... (나머지 기존 body 스타일) */
+}
+/* **7. C. 입력 필드 및 텍스트 영역 스타일:** */
+input[type="text"], input[type="email"], textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid var(--primary-pink); /* 핑크색 테두리 */
+    border-radius: 8px; /* 부드러운 모서리 */
+    font-size: 1em;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* 포커스 시 (클릭해서 입력 중일 때) 강조 */
+input[type="text"]:focus, input[type="email"]:focus, textarea:focus {
+    border-color: var(--accent-red); /* 핫핑크 테두리 */
+    box-shadow: 0 0 5px rgba(255, 105, 180, 0.5); /* 핑크색 빛 효과 */
+    outline: none; /* 기본 포커스 효과 제거 */
+}
+/* **8. A. 깜빡임 효과 정의 (keyframes):** */
+@keyframes heart-pulse {
+    0% { transform: scale(1); opacity: 0.8; }
+    50% { transform: scale(1.05); opacity: 1; }
+    100% { transform: scale(1); opacity: 0.8; }
+}
+
+/* **적용 예시:** HTML에서 <i class="heart-icon">❤️</i> 로 사용 */
+.heart-icon {
+    color: var(--accent-red);
+    font-size: 2em;
+    /* 애니메이션 적용 */
+    animation: heart-pulse 1.5s infinite ease-in-out; 
+    display: inline-block;
+}
+/* **8. B. 페이드인 효과 정의 (keyframes):** */
+@keyframes fadeInSlide {
+    0% {
+        opacity: 0;
+        transform: translateY(20px); /* 아래에서 20px 이동한 상태에서 시작 */
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* **적용 예시:** 모든 카드가 나타날 때 이 효과를 적용 */
+.card {
+    /* ... (기존 카드 스타일) */
+    opacity: 0; /* 초기에는 보이지 않게 설정 */
+    animation: fadeInSlide 1s ease-out forwards; /* 애니메이션 적용 */
+    /* 지연 시간을 줘서 카드가 순차적으로 나타나게 함 (선택 사항) */
+    /* animation-delay: 0.2s; */ 
+    /* animation-fill-mode: forwards; */
+}
+
+/* 만약 `.card`에 적용하기 어렵다면, 메인 콘텐츠 전체에 적용할 수 있습니다. */
+/* main {
+    animation: fadeInSlide 1s ease-out forwards;
+} */
+ /* **8. C. 커서 모양 변경:** */
+body {
+    /* 커서를 기본 화살표 대신 포인터 모양으로 살짝 바꾸어 상호작용성을 높입니다. */
+    cursor: url('path/to/small_heart_cursor.png'), auto; 
+    /* 또는 */
+    cursor: pointer; 
+}
